@@ -1,23 +1,31 @@
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [contentList, setContentList] = useState([]);
+
+  //setting the function as a variable to be returned the value of the created div
+  
+  const renderDivContent = () => {
+    <div>
+      <p>Hi!</p>
+    </div>
+  }
+  
+const addContentToList = () => {
+  setContentList(contentList => [...contentList, renderDivContent()]);
+}
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button id="list-creator-button" onclick={GetListCreatorTextBoxContents}>Create a list</button>
+      {/** When I click the button, I want the linked function to set its contained div value as... */}
+      <input id="list-creator-text-box" type="text"></input>
+
+      <div id="ul-container-div">
+        {/** the unordered list needs to go here when the button is clicked */}
+      </div>
     </div>
   );
 }
